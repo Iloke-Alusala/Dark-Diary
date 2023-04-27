@@ -1,6 +1,4 @@
-import 'dart:ui';
 import 'package:diarydark/Models/Note.dart';
-import 'package:diarydark/Widgets/addFolderButton.dart';
 import 'package:flutter/material.dart';
 import 'package:diarydark/Colors/Colors.dart';
 import 'package:diarydark/Widgets/smallNote.dart';
@@ -11,22 +9,26 @@ import 'package:diarydark/DB/notesDB.dart';
 import 'package:diarydark/DB/folderDB.dart';
 import 'package:diarydark/Models/Folder.dart';
 import 'package:diarydark/Widgets/addNoteButton.dart';
-import 'package:diarydark/Pages/folder_view.dart';
 import 'package:diarydark/Pages/folder_display.dart';
-import 'package:diarydark/Services/SlideupPageRoute.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'panelWidget.dart';
+
+final widgetNotePage = note_page.createKey();
 
 class note_page extends StatefulWidget {
   const note_page({Key? key}) : super(key: key);
 
+  // This will create the reference needed to call this classes methods in other classes
+
   @override
   State<note_page> createState() => _note_pageState();
+
+  // This will allow access to _note_pageState functions from any other class, such as refreshNotes
+  static GlobalKey<_note_pageState> createKey() =>
+      GlobalKey<_note_pageState>();
 }
 
 List<Note> notes = [];
 bool isLoading = false;
-bool ispressed = false;
+bool isPressed = false;
 List<Folder> allFolders = [];
 final colors = AppColors();
 Folder currentFolder = Folder(name: "All Notes", creation: DateTime.now(), size: 0);
@@ -47,16 +49,23 @@ class _note_pageState extends State<note_page> {
 
   Future getFolders() async {
     allFolders = await folderDB.instance.readAllFolders();
+    await folderDB.instance.updateSize();
   }
 
   Future refreshNotes() async {
     setState(() {
       isLoading = true;
     });
+    // If the current folder is AllNotes
     if(currentFolder.id == null){
       notes = await notesDB.instance.readAllNotes();
     }
+    // If the current folder is No Category
+    else if(currentFolder.id==-1000000){
+      notes = await notesDB.instance.getUncategorisedNotes();
+    }
     else {
+      // If the current folder has actually been specified
       notes = await notesDB.instance.inFolder(currentFolder.id);
     }
     //print(notes);
@@ -75,25 +84,6 @@ class _note_pageState extends State<note_page> {
     return Material(
       child: _body(folder: currentFolder, notes: notes),
     );
-  }
-
-  Future<void> loadNewFolder(BuildContext context) async {
-    // Navigator.push returns a Future that completes after calling
-    // Navigator.pop on the Selection Screen.
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (context) => folder_display(
-              folders: allFolders, currentFolder: currentFolder)),
-    );
-
-    // When a BuildContext is used from a StatefulWidget, the mounted property
-    // must be checked after an asynchronous gap.
-    //if (!mounted) return;
-
-    // After the Selection Screen returns a result, hide any previous snackbars
-    // and show the new result.
-    currentFolder = result;
   }
 }
 
@@ -119,11 +109,11 @@ class _bodyState extends State<_body> {
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
             SliverAppBar(
               floating: false,
-              pinned: true,
-              expandedHeight: 70,
+              pinned: false,
+              expandedHeight: 50,
               collapsedHeight: 50,
               flexibleSpace: Padding(
-                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
                 child: GestureDetector(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -131,7 +121,7 @@ class _bodyState extends State<_body> {
                       children: [
                         Flexible(
                           child: Text("${currentFolder.name}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: "euclid-circular-b",
                                 fontWeight: FontWeight.w600,
                                 fontSize: 25,
@@ -143,25 +133,30 @@ class _bodyState extends State<_body> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
                           child: Center(
-                              child: (ispressed== false)
+                              child: (isPressed== false)
                                   ? (const Icon(
-                                      Icons.arrow_drop_up,
+                                      Icons.arrow_drop_down,
                                       size: 30,
                                       color: Colors.grey,
                                     ))
                                   : (const Icon(
-                                      Icons.arrow_drop_down,
+                                      Icons.arrow_drop_up,
                                       size: 30,
                                       color: Colors.grey,
                                     ))),
                         )
                       ],
                     ),
+                    // If the appbar has been pressed
                     onTap: () async {
+                      setState(() {
+                        // This is to change the dropdown icon
+                        isPressed = !isPressed;
+                      });
+                      // Return the current folder to be what the user selects from the dropdown
                       currentFolder = await showModalBottomSheet(
                           context: context,
                           builder: (context) {
-                            ispressed = !ispressed;
                             return folder_display(folders: allFolders, currentFolder: currentFolder);
                           },
                           isScrollControlled: true,
@@ -171,8 +166,12 @@ class _bodyState extends State<_body> {
                           )),
                           isDismissible: true,
                           backgroundColor: Colors.transparent,
-                          enableDrag: true);
-                      print("Tmp is ${currentFolder.name}");
+                          //.whenComplete, very cool code to carry out function when the ModalBottomSheet
+                          //has been popped :)
+                          enableDrag: true).whenComplete((){
+                            isPressed = !isPressed;
+                      });
+                      //print("Tmp is ${currentFolder.name}");
                     }),
               ),
               automaticallyImplyLeading: true,
@@ -182,7 +181,8 @@ class _bodyState extends State<_body> {
             ),
           ],
           body: Material(
-              child: (!notes.isEmpty)
+            // If there are notes in the folder, populate the notes page
+              child: (notes.isNotEmpty)
                   ? SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
@@ -192,20 +192,20 @@ class _bodyState extends State<_body> {
                         ],
                       ),
                     )
+              // Otherwise, show that there are no notes present
                   : Container(
                       color: colors.grey2,
                       child: Center(
-                        child: Container(
-                          child: Text("No Notes",
-                              style: TextStyle(
-                                  fontSize: 35,
-                                  fontWeight: FontWeight.w300,
-                                  color: colors.black0,
-                                  fontFamily: "euclid-circular-b")),
-                        ),
+                        child: Text("No Notes",
+                            style: TextStyle(
+                                fontSize: 35,
+                                fontWeight: FontWeight.w300,
+                                color: colors.black0,
+                                fontFamily: "euclid-circular-b")),
                       ),
                     )),
         ),
+        // Overlay, addNote button on screen
         Align(
             alignment: Alignment.bottomRight,
             child: addNoteButton(
@@ -216,15 +216,10 @@ class _bodyState extends State<_body> {
   }
 }
 
-class staggeredGrid extends StatefulWidget {
+class staggeredGrid extends StatelessWidget {
   staggeredGrid({Key? key, required this.folder}) : super(key: key);
   Folder folder;
   //List<Note> notes;
-  @override
-  State<staggeredGrid> createState() => _staggeredGridState();
-}
-
-class _staggeredGridState extends State<staggeredGrid> {
   final colors = AppColors();
 
   @override
@@ -243,16 +238,16 @@ class _staggeredGridState extends State<staggeredGrid> {
             child: (index % 4 == 1)
                 ? longNote(
                     note: notes[index],
-                    folder: widget.folder,
+                    folder: folder,
                   )
                 : (index % 4 == 3)
                     ? wideNote(
                         note: notes[index],
-                        folder: widget.folder,
+                        folder: folder,
                       )
                     : smallNote(
                         note: notes[index],
-                        folder: widget.folder,
+                        folder: folder,
                       ),
           );
         },
@@ -263,12 +258,12 @@ class _staggeredGridState extends State<staggeredGrid> {
 
            */
           if (index % 4 == 1) {
-            return StaggeredTile.count(1, 2);
+            return const StaggeredTile.count(1, 2);
           }
           if (index % 4 == 3) {
-            return StaggeredTile.count(2, 1);
+            return const StaggeredTile.count(2, 1);
           } else {
-            return StaggeredTile.count(1, 1);
+            return const StaggeredTile.count(1, 1);
           }
         },
         mainAxisSpacing: 0.0,
@@ -276,4 +271,10 @@ class _staggeredGridState extends State<staggeredGrid> {
       ),
     );
   }
+}
+
+extension refreshFoldersKeyExt on GlobalKey<_note_pageState> {
+  void getFolders() => currentState?.getFolders();
+
+//String get loginStatus => currentState?.loginStatus ?? 'Signed Out';
 }
