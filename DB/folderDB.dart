@@ -1,10 +1,8 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:flutter/material.dart';
 import 'package:diarydark/Models/Folder.dart';
 import 'package:diarydark/DB/notesDB.dart';
 import 'package:diarydark/Models/Note.dart';
-import 'dart:convert';
 import 'package:diarydark/Pages/folder_view.dart';
 //The Database Provider Class
 
@@ -30,9 +28,9 @@ class folderDB {
   }
 
   Future _createDB(Database db, int version) async {
-    final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    final textType = 'TEXT NOT NULL';
-    final integerType = 'INTEGER NOT NULL';
+    const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    const textType = 'TEXT NOT NULL';
+    const integerType = 'INTEGER NOT NULL';
 
     await db.execute('''
 CREATE TABLE $tableFolder ( 
@@ -56,31 +54,10 @@ CREATE TABLE $tableFolder (
     return Folder.fromJson(result[0]);
   }
 
-/*
-  Future<Folder> readNote(int id) async {
-    final db = await instance.database;
-
-    final maps = await db.query(
-      tableFolder,
-      columns: FolderFields.values,
-      //values in 'whereArgs' stand in place of '?'
-      //This syntax prevents SQL injections
-      where: '${FolderFields.id} = ?',
-      whereArgs: [id],
-    );
-
-    if (maps.isNotEmpty) {
-      return Note.fromJson(maps.first);
-    }
-    else {
-      throw Exception('Id $id could not be found :/');
-    }
-  }
-*/
   Future<List<Folder>> readAllFolders() async {
     final db = await instance.database;
 
-    final orderBy = '${FolderFields.time} desc';
+    const orderBy = '${FolderFields.time} desc';
     // final result =
     //     await db.rawQuery('SELECT * FROM $tableNotes ORDER BY $orderBy');
 
@@ -102,10 +79,21 @@ CREATE TABLE $tableFolder (
     return 1;
   }
 
+  Future<List<String>> getFoldersNames()async{
+    List<Folder> result = await folderDB.instance.readAllFolders();
+    return result.map((x) => x.name!).toList();
+  }
+
   Future<int> delete(dynamic id) async {
     final db = await instance.database;
-    return await db
+    final notes = await notesDB.instance.inFolder(id);
+    for (var x in notes) {
+      notesDB.instance.delete(x.id);
+    }
+    final result = await db
         .delete(tableFolder, where: '${FolderFields.id} = ?', whereArgs: [id]);
+    //print("successfully deleted: ${result}");
+    return result;
   }
 
   Future close() async {
@@ -122,28 +110,31 @@ CREATE TABLE $tableFolder (
     final db = await notesDB.instance.database;
 
     //Create the map to store note ids and their amount
+    //There was a major bug here, where I was comparing the notes list
     Map<int?, dynamic> mp = {};
-    for (int i = 0; i < notesList.length; ++i) {
+    for (int i = 0; i < folderList.length; ++i) {
       final result = await db.rawQuery(
-          'SELECT Count(*) FROM ${tableNote} Where ${NoteFields.folderid} = "${notesList[i].id}"');
-      final parsedRes = result;
-      mp[notesList[i].id] = result[0]["Count(*)"];
-      //print(mp[notesList[i].id]);
+          'SELECT Count(*) FROM $tableNote Where ${NoteFields.folderid} = "${folderList[i].id}"');
+      mp[folderList[i].id] = result[0]["Count(*)"];
+      //print("The folder count for ${folderList[i].name} is : ${result[0]["Count(*)"]}");
+      //print("${mp[notesList[i].id]} is the count");
     }
 
-    folderList.forEach((x) {
+    folderList.forEach((x) async{
       //print("Folder size: ${mp[x.id]}");
       Folder newFolder = x.copy(size: mp[x.id]);
-      update(newFolder);
+      //print("Folder ${x.name} has a size ${x.size}");
+      await update(newFolder);
       //print("Python Folder: ${newFolder.name} and size ${newFolder.size}");
     });
   }
   
   Future updateFolder(Folder inFolder) async{
     final db = await folderDB.instance.database;
-    print("${inFolder.creation}");
+    //print("${inFolder.creation}");
     db.rawQuery("Update $tableFolder Set ${FolderFields.time} = ${DateTime.now()} where ${FolderFields.id} = ${inFolder.id}");
-    widgetFolderView.refreshFolders();
-    print("${inFolder.creation}");
+    updateSize();
+    //widgetFolderView.refreshFolders();
+    //print("${inFolder.creation}");
   }
 }
