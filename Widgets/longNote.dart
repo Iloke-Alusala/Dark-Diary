@@ -4,7 +4,6 @@ import 'package:diarydark/Colors/Colors.dart';
 import 'package:diarydark/Pages/note_view.dart';
 import 'package:diarydark/Models/Note.dart';
 import 'package:diarydark/Models/Folder.dart';
-import 'package:flutter_launcher_icons/android.dart';
 import 'package:diarydark/DB/notesDB.dart';
 import 'package:diarydark/Pages/folder_view.dart';
 import 'package:diarydark/Services/customPageRoute.dart';
@@ -31,9 +30,9 @@ class longNote extends StatelessWidget {
         width: 180,
         height: 880,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(30)),
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
           color: colors.black0,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.grey,
               offset: Offset(0.0, 1.0), //(x,y)
@@ -66,14 +65,14 @@ class longNote extends StatelessWidget {
                     ),
                   ),
                   PopupMenuButton(
-                      icon: Container(
+                      icon: SizedBox(
                         height: 15,
                         width: 15,
                         child: Image.asset("lib/Icons/kebab.png"),
                       ),
                       itemBuilder: (context) => [
                             PopupMenuItem(
-                              child: Text('Delete'),
+                              child: const Text('Delete'),
                               onTap: () async {
                                 await notesDB.instance.delete(note!.id);
                                 widgetFolderView.refreshFolders();
@@ -85,7 +84,7 @@ class longNote extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: Divider(
                 color: colors.white,
               ),
@@ -109,33 +108,18 @@ class longNote extends StatelessWidget {
                         ),
                       ),
                     )
-                  : Container(
-                      child: Text(
-                        note!.description!,
-                        style: TextStyle(
-                            fontFamily: "euclid-circular-b",
-                            color: colors.grey0,
-                            fontWeight: FontWeight.w600,
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 12),
-                        textAlign: TextAlign.start,
-                        maxLines: 19,
-                      ),
-                    ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 1),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [],
+                  : Text(
+                    note!.description!,
+                    style: TextStyle(
+                        fontFamily: "euclid-circular-b",
+                        color: colors.grey0,
+                        fontWeight: FontWeight.w600,
+                        overflow: TextOverflow.ellipsis,
+                        fontSize: 12),
+                    textAlign: TextAlign.start,
+                    maxLines: 19,
                   ),
-                ),
-              ),
-            )
+            ),
           ],
         ),
       ),
