@@ -30,9 +30,9 @@ class wideNote extends StatelessWidget {
         width: 180,
         height: 190,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(30)),
+            borderRadius: const BorderRadius.all(Radius.circular(30)),
             color: colors.grey1,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.grey,
               offset: Offset(0.0, 1.0), //(x,y)
@@ -64,11 +64,11 @@ class wideNote extends StatelessWidget {
                         maxLines: 2,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     PopupMenuButton(
                         itemBuilder: (context) => [
                               PopupMenuItem(
-                                  child: Text('Delete'), onTap: () async{
+                                  child: const Text('Delete'), onTap: () async{
                                 await notesDB.instance.delete(note!.id);
                                 widgetFolderView.refreshFolders();
                                 folderDB.instance.updateSize();
@@ -81,7 +81,7 @@ class wideNote extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(10,0,10,0),
+              padding: const EdgeInsets.fromLTRB(10,0,10,0),
               child: Divider(
                 color: colors.grey0,
               ),
@@ -93,35 +93,31 @@ class wideNote extends StatelessWidget {
                   ? Padding(
                       padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                       child: Center(
-                        child: Container(
-                          child: Text(
-                            "Waiting for a message",
-                            style: TextStyle(
-                              fontFamily: "euclid-circular-b",
-                              color: colors.grey0,
-                              fontWeight: FontWeight.w600,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            textAlign: TextAlign.start,
-                            maxLines: 5,
+                        child: Text(
+                          "Waiting for a message",
+                          style: TextStyle(
+                            fontFamily: "euclid-circular-b",
+                            color: colors.grey0,
+                            fontWeight: FontWeight.w600,
+                            overflow: TextOverflow.ellipsis,
                           ),
+                          textAlign: TextAlign.start,
+                          maxLines: 5,
                         ),
                       ),
                     )
-                  : Container(
-                      child: Text(
-                        note!.description!,
-                        style: TextStyle(
-                          fontFamily: "euclid-circular-b",
-                          color: colors.grey0,
-                          fontWeight: FontWeight.w600,
-                          overflow: TextOverflow.ellipsis,
-                          fontSize: 12
-                        ),
-                        textAlign: TextAlign.start,
-                        maxLines: 5,
-                      ),
+                  : Text(
+                    note!.description!,
+                    style: TextStyle(
+                      fontFamily: "euclid-circular-b",
+                      color: colors.grey0,
+                      fontWeight: FontWeight.w600,
+                      overflow: TextOverflow.ellipsis,
+                      fontSize: 12
                     ),
+                    textAlign: TextAlign.start,
+                    maxLines: 5,
+                  ),
             ),
           ],
         ),
