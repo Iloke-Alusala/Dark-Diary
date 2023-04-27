@@ -2,27 +2,20 @@ import 'package:diarydark/Models/Folder.dart';
 import 'package:flutter/material.dart';
 import 'package:diarydark/Colors/Colors.dart';
 import 'package:diarydark/Widgets/folderCard.dart';
-import 'package:diarydark/Services/customRectTween.dart';
-import 'package:diarydark/Services/HeroDialogRoute.dart';
 import 'package:diarydark/Widgets/addFolderButton.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:diarydark/DB/folderDB.dart';
-import 'package:diarydark/DB/notesDB.dart';
 import 'package:diarydark/Models/Note.dart';
-import 'package:diarydark/Services/customPageRoute.dart';
-import 'package:diarydark/Services/SlideupPageRoute.dart';
-import 'package:diarydark/Pages/folder_display.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
-
+import 'package:dropdown_button2/dropdown_button2.dart';
 /*
 Problem:
  Find a way to refresh page only at certain instances
  */
-
+// This will create the reference that will allow you to access methods in other files
 final widgetFolderView = folder_view.createKey();
 
 class folder_view extends StatefulWidget {
-  folder_view({Key? key}) : super(key: key);
+  const folder_view({Key? key}) : super(key: key);
 
   @override
   State<folder_view> createState() => _folder_viewState();
@@ -44,7 +37,7 @@ class _folder_viewState extends State<folder_view> {
       folderid: 0);
 
   bool isLoading = false;
-  bool ispressed = false;
+  bool isPressed = false;
 
 
   Future refreshFolders() async {
@@ -58,62 +51,57 @@ class _folder_viewState extends State<folder_view> {
     refreshFolders();
   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20);
-
   final colors = AppColors();
 
   @override
   Widget build(BuildContext context) {
     refreshFolders();
-    print(folders);
+    //print(folders);
     folderDB.instance.updateSize();
     return Scaffold(
       backgroundColor: colors.black0,
       appBar: AppBar(
         toolbarHeight: 70,
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(10),
+          preferredSize: const Size.fromHeight(10),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(14, 0, 10, 5),
-            child: Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text("folders",
-                      style: TextStyle(
-                          fontFamily: "euclid-circular-b",
-                          fontWeight: FontWeight.w600,
-                          fontSize: 35,
-                          color: Colors.white)),
-                  GestureDetector(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-                      child: Center(
-                        child: Icon(
-                          Icons.arrow_drop_down,
-                          size: 30,
-                          color: Colors.grey,
-                        ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Text("folders",
+                    style: TextStyle(
+                        fontFamily: "euclid-circular-b",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 35,
+                        color: Colors.white)),
+                GestureDetector(
+                  child: const Padding(
+                    padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                    child: Center(
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        size: 30,
+                        color: Colors.grey,
                       ),
                     ),
-                    onTap: () {
-                      ispressed = true;
-                      /*
-                      Navigator.of(context)
-                          .push(SlideupPageRoute(builder: (context) {
-                        return folder_display();
-                      }));
-
-                       */
-                    },
                   ),
-                  Spacer(),
-                  Icon(Icons.calendar_today_outlined,
-                      size: 30, color: Colors.white)
-                ],
-              ),
+                  onTap: () {
+                    isPressed = true;
+                    /*
+                    Navigator.of(context)
+                        .push(SlideupPageRoute(builder: (context) {
+                      return folder_display();
+                    }));
+
+                     */
+                  },
+                ),
+                const Spacer(),
+                const Icon(Icons.calendar_today_outlined,
+                    size: 30, color: Colors.white)
+              ],
             ),
           ),
         ),
@@ -122,7 +110,7 @@ class _folder_viewState extends State<folder_view> {
       ),
       body: Stack(
         children: [
-          (!folders.isEmpty)
+          (folders.isNotEmpty)
               ? buildFolders()
               : Center(
                   child: Text("No Folders",
@@ -133,12 +121,10 @@ class _folder_viewState extends State<folder_view> {
                         fontFamily: "euclid-circular-b",
                       )),
                 ),
-          Align(alignment: Alignment.bottomRight, child: addFolderButton())
+          const Align(alignment: Alignment.bottomRight, child: addFolderButton())
         ],
       ),
     );
-    folderDB.instance.close();
-    notesDB.instance.close();
   }
 
   Widget buildFolders() {
@@ -147,12 +133,12 @@ class _folder_viewState extends State<folder_view> {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemCount: folders.length,
-      staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+      staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
       itemBuilder: (context, index) {
         return GestureDetector(
           child: Padding(
             //Change Padding around foldercard border and left+right boundaries
-            padding: EdgeInsets.fromLTRB(6, 0, 6, 0),
+            padding: const EdgeInsets.fromLTRB(6, 0, 6, 0),
             child:
                 folderCard(folder: folders[index], number: folders[index].size!),
           ),
