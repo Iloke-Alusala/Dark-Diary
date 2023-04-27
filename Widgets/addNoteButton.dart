@@ -13,6 +13,7 @@ class addNoteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Create empty note template
     final Note emptyNote = Note(
         title: "",
         isImportant: false,
