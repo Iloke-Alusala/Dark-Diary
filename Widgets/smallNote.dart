@@ -7,8 +7,6 @@ import 'package:diarydark/Pages/note_view.dart';
 import 'package:diarydark/Models/Folder.dart';
 import 'package:diarydark/Pages/folder_view.dart';
 import 'package:diarydark/Services/customPageRoute.dart';
-import 'package:diarydark/Services/HeroDialogRoute.dart';
-import 'package:diarydark/Services/customRectTween.dart';
 
 class smallNote extends StatelessWidget {
   smallNote({Key? key, required this.note, required this.folder})
@@ -33,9 +31,9 @@ class smallNote extends StatelessWidget {
        */
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(30)),
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
           color: colors.grey1,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.grey,
               offset: Offset(0.0, 1.0), //(x,y)
@@ -49,22 +47,20 @@ class smallNote extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 11, 10, 2),
-              child: Container(
-                child: Text(
-                  note.title!,
-                  style: TextStyle(
-                      fontFamily: "euclid-circular-b",
-                      color: colors.black0,
-                      fontWeight: FontWeight.w500,
-                      overflow: TextOverflow.ellipsis,
-                      fontSize: 12),
-                  textAlign: TextAlign.start,
-                  maxLines: 1,
-                ),
+              child: Text(
+                note.title!,
+                style: TextStyle(
+                    fontFamily: "euclid-circular-b",
+                    color: colors.black0,
+                    fontWeight: FontWeight.w500,
+                    overflow: TextOverflow.ellipsis,
+                    fontSize: 12),
+                textAlign: TextAlign.start,
+                maxLines: 1,
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: Divider(
                 color: colors.grey0,
               ),
@@ -75,36 +71,32 @@ class smallNote extends StatelessWidget {
                   ? Padding(
                       padding: const EdgeInsets.fromLTRB(0, 35, 0, 0),
                       child: Center(
-                        child: Container(
-                          child: Text(
-                            "Waiting for a message",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontFamily: "euclid-circular-b",
-                              color: colors.grey0,
-                              fontWeight: FontWeight.w600,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            textAlign: TextAlign.start,
-                            maxLines: 5,
+                        child: Text(
+                          "Waiting for a message",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: "euclid-circular-b",
+                            color: colors.grey0,
+                            fontWeight: FontWeight.w600,
+                            overflow: TextOverflow.ellipsis,
                           ),
+                          textAlign: TextAlign.start,
+                          maxLines: 5,
                         ),
                       ),
                     )
-                  : Container(
-                      child: Text(
-                        note.description!,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: "euclid-circular-b",
-                          color: colors.grey0,
-                          fontWeight: FontWeight.w600,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        textAlign: TextAlign.start,
-                        maxLines: 5,
-                      ),
+                  : Text(
+                    note.description!,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontFamily: "euclid-circular-b",
+                      color: colors.grey0,
+                      fontWeight: FontWeight.w600,
+                      overflow: TextOverflow.ellipsis,
                     ),
+                    textAlign: TextAlign.start,
+                    maxLines: 5,
+                  ),
             ),
             Expanded(
               child: Align(
@@ -118,10 +110,10 @@ class smallNote extends StatelessWidget {
                       PopupMenuButton(
                           itemBuilder: (context) => [
                                 PopupMenuItem(
-                                    child: Text('Delete'), onTap: () async{
+                                    child: const Text('Delete'), onTap: () async{
                                       await notesDB.instance.delete(note.id);
                                       widgetFolderView.refreshFolders();
-                                      folderDB.instance.updateSize();
+                                      await folderDB.instance.updateSize();
                                 },
                                 ),
                               ])
