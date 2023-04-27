@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:flutter/material.dart';
 import 'package:diarydark/Models/Note.dart';
 //The Database Provider Class
 
@@ -25,13 +24,12 @@ class notesDB {
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
-
   Future _createDB(Database db, int version) async {
-    final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    final textType = 'TEXT NOT NULL';
-    final boolType = 'BOOLEAN NOT NULL';
-    final integerType = 'INTEGER NOT NULL';
-    final nullIntegerType = "INTEGER";
+    const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    const textType = 'TEXT NOT NULL';
+    const boolType = 'BOOLEAN NOT NULL';
+    const integerType = 'INTEGER NOT NULL';
+    const nullIntegerType = "INTEGER";
 
     await db.execute('''
 CREATE TABLE $tableNote ( 
@@ -66,8 +64,7 @@ CREATE TABLE $tableNote (
 
     if (maps.isNotEmpty) {
       return Note.fromJson(maps.first);
-    }
-    else {
+    } else {
       throw Exception('Id $id could not be found :/');
     }
   }
@@ -75,7 +72,7 @@ CREATE TABLE $tableNote (
   Future<List<Note>> readAllNotes() async {
     final db = await instance.database;
 
-    final orderBy = '${NoteFields.time} ASC';
+    const orderBy = '${NoteFields.time} ASC';
     // final result =
     //     await db.rawQuery('SELECT * FROM $tableNotes ORDER BY $orderBy');
 
@@ -84,22 +81,18 @@ CREATE TABLE $tableNote (
     return result.map((json) => Note.fromJson(json)).toList();
   }
 
-  Future<int> allNotesSize() async{
-    final db = await instance.database;
-
-    List<Map<String, dynamic>> result = await db.rawQuery("Select count(${NoteFields.id}) from ${tableNote}");
-    //print("semi-result is: ${result[0]["count(_id)"]}");
+  Future<int> allNotesSize() async {
     List<Note> notes = await readAllNotes();
     return notes.length;
   }
 
   Future<List<Note>> inFolder(dynamic folderId) async {
-
     final db = await instance.database;
 
-    final orderBy = "${NoteFields.time} ASC";
+    const orderBy = "${NoteFields.time} ASC";
 
-    final result = await db.query(tableNote, orderBy: orderBy, where: '${NoteFields.folderid} = "${folderId}"');
+    final result = await db.query(tableNote,
+        orderBy: orderBy, where: '${NoteFields.folderid} = "$folderId"');
     return result.map((json) => Note.fromJson(json)).toList();
   }
 
@@ -116,15 +109,29 @@ CREATE TABLE $tableNote (
 
   Future<int> delete(dynamic id) async {
     final db = await instance.database;
-    return await db.delete(
-        tableNote,
-        where: '${NoteFields.id} = ?',
-        whereArgs: [id]
-    );
+    return await db
+        .delete(tableNote, where: '${NoteFields.id} = ?', whereArgs: [id]);
   }
 
   Future close() async {
     final db = await instance.database;
     db.close();
   }
+
+  Future<String> getUncategorisedNotesCount() async {
+    final db = await instance.database;
+    final result =  await db.rawQuery("Select count(${NoteFields.id}) from $tableNote where ${NoteFields.folderid} = -1000000");
+    //To use the direct result as a List<Map>, you must add await before the db.Query.. part.
+    return "${result[0]["count(_id)"]}";
+  }
+
+  Future<List<Note>> getUncategorisedNotes()async{
+    final db = await instance.database;
+    const orderBy = "${NoteFields.time} ASC";
+
+    final result = await db.query(tableNote,
+        orderBy: orderBy, where: '${NoteFields.folderid} = "-1000000"');
+    return result.map((json) => Note.fromJson(json)).toList();
+  }
+
 }
