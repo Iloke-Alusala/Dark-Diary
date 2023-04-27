@@ -1,15 +1,8 @@
 import 'package:diarydark/Models/Folder.dart';
 import 'package:diarydark/Pages/folder_view.dart';
-import 'package:diarydark/Pages/note_page.dart';
-import 'package:diarydark/Services/HeroDialogRoute.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:diarydark/Colors/Colors.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:diarydark/DB/folderDB.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:diarydark/Services/customPageRoute.dart';
 import 'package:intl/intl.dart';
 
 class folderCard extends StatelessWidget {
@@ -37,7 +30,7 @@ class folderCard extends StatelessWidget {
           elevation: 0,
           shadowColor: Colors.white,
           color: colors.black1,
-          child: Container(
+          child: SizedBox(
             //Change Padding around l/r boundaries in folderview
             height: 105,
             width: MediaQuery.of(context).size.width ,
@@ -82,7 +75,7 @@ class folderCard extends StatelessWidget {
                       child: SizedBox(
                         height: 16,
                         child: Text(
-                          "${timeCreation}, ${dateCreation}",
+                          "$timeCreation, $dateCreation",
                           style: TextStyle(
                             fontSize: 12,
                             color: colors.grey0,
@@ -138,11 +131,11 @@ class folderOptions extends StatelessWidget {
                     folderDB.instance.delete(folder.id!);
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) {
-                        return folder_view();
+                        return const folder_view();
                       },
                     ));
                   },
-                  child: Text("Delete")),
+                  child: const Text("Delete")),
             ],
           ),
         ),
@@ -160,7 +153,7 @@ void _showPopupMenu(context, Offset offset) async {
     context: context,
     position: RelativeRect.fromLTRB(left, top, 0, 0),
     items: [
-      PopupMenuItem(
+      const PopupMenuItem(
         value: 3,
         child: Text("Delete"),
       ),
