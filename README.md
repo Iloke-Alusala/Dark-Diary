@@ -221,6 +221,9 @@ To use the `folderDB` class in your Flutter application, follow these steps:
 1. Import the `FolderDB.dart` file into your project.
 2. Create an instance of the `folderDB` class to access database operations.
 3. Use the provided methods to interact with folders in your application.
+
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
 | [notesDB.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/DB/notesDB.dart)   | The `notesDB.dart` file provides a `notesDB` class, which serves as a database provider for managing notes in the application. It utilizes the `sqflite` package for SQLite database operations.
 
 ### Features
