@@ -6,9 +6,6 @@
     <h1 align="center">DARK-DIARY</h1>
 </p>
 <p align="center">
-    <em><code>► INSERT-TEXT-HERE</code></em>
-</p>
-<p align="center">
 	<!-- Shields.io badges not used with skill icons. --><p>
 <p align="center">
 		<em>Developed with the software and tools below.</em>
