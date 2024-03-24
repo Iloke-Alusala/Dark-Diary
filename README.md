@@ -97,7 +97,23 @@
 
 | File                                                                                 | Summary                         |
 | ---                                                                                  | ---                             |
-| [pubspec.yaml](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/pubspec.yaml) | <code>► INSERT-TEXT-HERE</code> |
+| [pubspec.yaml](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/pubspec.yaml) | <code>## Description
+
+The `pubspec.yaml` file defines the dependencies, assets, and configuration for the "diarydark" Flutter project.
+
+### Features
+
+- **Dependencies**: Lists the packages required for the project to function properly.
+- **Assets**: Includes fonts and image assets used in the project.
+- **Configuration**: Provides metadata about the project, such as name, description, version, and supported platforms.
+
+## Usage
+
+To use the `pubspec.yaml` file in your Flutter project, follow these steps:
+
+1. Copy the contents of the `pubspec.yaml` file into your project's `pubspec.yaml`.
+2. Update the dependencies and assets sections according to your project's needs.
+3. Run `flutter pub get` in your project directory to install the dependencies listed in the `pubspec.yaml` file.</code> |
 
 </details>
 
@@ -417,13 +433,131 @@ To use the `HeroDialogueRoute.dart` file in your Flutter application, follow the
 
 | File                                                                                                         | Summary                         |
 | ---                                                                                                          | ---                             |
-| [editFolderName.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/editFolderName.dart)   | <code>► INSERT-TEXT-HERE</code> |
-| [smallNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/smallNote.dart)             | <code>► INSERT-TEXT-HERE</code> |
-| [folderCard.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/folderCard.dart)           | <code>► INSERT-TEXT-HERE</code> |
-| [addNoteButton.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/addNoteButton.dart)     | <code>► INSERT-TEXT-HERE</code> |
-| [longNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/longNote.dart)               | <code>► INSERT-TEXT-HERE</code> |
-| [wideNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/wideNote.dart)               | <code>► INSERT-TEXT-HERE</code> |
-| [addFolderButton.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/addFolderButton.dart) | <code>► INSERT-TEXT-HERE</code> |
+| [editFolderName.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/editFolderName.dart)   | <code>## Description
+
+The `editFolderName.dart` file provides an `editFolderName` class, which is a stateful widget representing the edit folder name screen. This screen allows users to change the name of a folder.
+
+### Features
+
+- **Edit Folder Name Screen**: Displays a form for editing the name of a folder.
+- **Validation**: Validates the folder name and ensures it is not empty or already exists.
+- **Database Interaction**: Updates the folder name in the database upon submission.
+- **Custom Page Route**: Uses standard `Navigator.of(context).pop()` to close the screen after editing.
+
+## Usage
+
+To use the `editFolderName.dart` file in your Flutter application, follow these steps:
+
+1. Import the `editFolderName.dart` file into your project.
+2. Use the `editFolderName` widget in your navigation stack to allow users to edit folder names.</code> |
+| [smallNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/smallNote.dart)             | <code>## Description
+
+The `smallNote.dart` file provides a widget called `smallNote`, which represents a small note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
+
+### Features
+
+- **Small Note Display**: Displays the title and description of a note.
+- **Interaction**: Allows tapping on the note to view its details.
+- **Delete Option**: Provides a delete option through a popup menu button.
+
+## Usage
+
+To use the `smallNote.dart` file in your Flutter application, follow these steps:
+
+1. Import the `smallNote.dart` file into your project.
+2. Use the `smallNote` widget to display small notes in your UI.</code> |
+| [folderCard.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/folderCard.dart)           | <code>## Description
+
+The `folderCard.dart` file provides two widgets:
+1. **folderCard**: Represents a card displaying folder information, including name, creation date, and note count.
+2. **folderOptions**: Displays options for interacting with the folder, such as deleting it.
+
+### Features
+
+- **Folder Card**: Displays folder name, creation date, and note count.
+- **Interaction**: Allows tapping on the folder card to perform actions.
+- **Options**: Provides options for deleting the folder.
+
+## Usage
+
+To use the `folderCard.dart` file in your Flutter application, follow these steps:
+
+1. Import the `folderCard.dart` file into your project.
+2. Use the `folderCard` widget to display folder information in your UI.
+3. Optionally, use the `folderOptions` widget to provide interaction options for the folder.</code> |
+| [addNoteButton.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/addNoteButton.dart)     | <code>## Description
+
+The `addNoteButton.dart` file provides a `addNoteButton` class, which is a stateless widget representing the add note button. This button allows users to create a new note within a specified folder.
+
+### Features
+
+- **Add Note Button**: Displays an icon button for adding notes.
+- **Navigate to Note View**: Opens the note view page when tapped, allowing users to create a new note.
+- **Custom Page Route**: Uses a custom page route (`customPageRoute`) for navigating to the note view page.
+
+## Usage
+
+To use the `addNoteButton.dart` file in your Flutter application, follow these steps:
+
+1. Import the `addNoteButton.dart` file into your project.
+2. Add the `addNoteButton` widget to your UI where you want the add note button to appear.
+3. Pass the required folder to the `addNoteButton` widget.
+4. Customize the appearance of the button as needed.</code> |
+| [longNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/longNote.dart)               | <code>## Description
+
+The `longNote.dart` file provides a widget called `longNote`, which represents a long note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
+
+### Features
+
+- **Long Note Display**: Displays the title and description of a note.
+- **Interaction**: Allows tapping on the note to view its details.
+- **Delete Option**: Provides a delete option through a popup menu button.
+
+## Usage
+
+To use the `longNote.dart` file in your Flutter application, follow these steps:
+
+1. Import the `longNote.dart` file into your project.
+2. Use the `longNote` widget to display long notes in your UI.</code> |
+| [wideNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/wideNote.dart)               | <code>## Description
+
+The `wideNote.dart` file provides a widget called `wideNote`, which represents a wide note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
+
+### Features
+
+- **Wide Note Display**: Displays the title and description of a note.
+- **Interaction**: Allows tapping on the note to view its details.
+- **Delete Option**: Provides a delete option through a popup menu button.
+
+## Usage
+
+To use the `wideNote.dart` file in your Flutter application, follow these steps:
+
+1. Import the `wideNote.dart` file into your project.
+2. Use the `wideNote` widget to display wide notes in your UI.</code> |
+| [addFolderButton.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/addFolderButton.dart) | <code>## Description
+
+The `addFolderButton.dart` file provides two classes:
+1. `addFolderButton`: A stateful widget representing the add folder button.
+2. `addFolder`: A stateful widget representing the dialog for adding a new folder.
+
+The `addFolderButton` widget displays an icon button that, when tapped, opens a dialog for creating a new folder. The `addFolder` dialog allows users to input a folder name and create a new folder.
+
+### Features
+
+- **Add Folder Button**: Displays an icon button for adding folders.
+- **Dialog for Adding Folders**: Opens a dialog for creating a new folder with a name input field.
+- **Validation**: Validates the folder name input to ensure uniqueness and non-emptiness.
+- **Create Folder**: Creates a new folder when the user inputs a valid folder name and taps the "Create" button.
+
+## Usage
+
+To use the `addFolderButton.dart` file in your Flutter application, follow these steps:
+
+1. Import the `addFolderButton.dart` file into your project.
+2. Add the `addFolderButton` widget to your UI where you want the add folder button to appear.
+3. Customize the appearance of the button as needed.
+4. Implement the logic to handle folder creation in the `addFolder` dialog.</code> |
 
 </details>
 
