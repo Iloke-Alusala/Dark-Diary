@@ -126,9 +126,7 @@
 
 | File                                                                                 | Summary                         |
 | ---                                                                                  | ---                             |
-| [pubspec.yaml](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/pubspec.yaml) | ## Description
-
-The `pubspec.yaml` file defines the dependencies, assets, and configuration for the "diarydark" Flutter project.
+| [pubspec.yaml](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/pubspec.yaml) | The `pubspec.yaml` file defines the dependencies, assets, and configuration for the "diarydark" Flutter project.
 
 ### Features
 
