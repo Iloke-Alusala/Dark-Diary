@@ -148,9 +148,7 @@ To use the `pubspec.yaml` file in your Flutter project, follow these steps:
 
 | File                                                                                      | Summary                         |
 | ---                                                                                       | ---                             |
-| [Note.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Models/Note.dart)     | <code>## Description
-
-The `Note.dart` file provides a `Note` class, which represents a note entity with properties such as id, importance, number, title, description, creation time, and folder id. It also includes constants for database table and field names.
+| [Note.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Models/Note.dart)     | The `Note.dart` file provides a `Note` class, which represents a note entity with properties such as id, importance, number, title, description, creation time, and folder id. It also includes constants for database table and field names.
 
 ### Features
 
@@ -164,10 +162,11 @@ To use the `Note` class in your Flutter application, follow these steps:
 
 1. Import the `Note.dart` file into your project.
 2. Create instances of the `Note` class to represent notes in your application.
-3. Utilize the provided methods for JSON serialization and copying note objects.</code> |
-| [Folder.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Models/Folder.dart) | <code>## Description
+3. Utilize the provided methods for JSON serialization and copying note objects.
 
-The `Folder.dart` file provides a `Folder` class, which represents a folder entity with properties such as id, name, creation time, and size. It also includes constants for database table and field names.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |   
+| [Folder.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Models/Folder.dart) | The `Folder.dart` file provides a `Folder` class, which represents a folder entity with properties such as id, name, creation time, and size. It also includes constants for database table and field names.
 
 ### Features
 
@@ -181,7 +180,7 @@ To use the `Folder` class in your Flutter application, follow these steps:
 
 1. Import the `Folder.dart` file into your project.
 2. Create instances of the `Folder` class to represent folders in your application.
-3. Utilize the provided methods for JSON serialization and copying folder objects./code> |
+3. Utilize the provided methods for JSON serialization and copying folder objects.
 
 </details>
 
@@ -189,9 +188,7 @@ To use the `Folder` class in your Flutter application, follow these steps:
 
 | File                                                                                      | Summary                         |
 | ---                                                                                       | ---                             |
-| [Colors.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Colors/Colors.dart) | <code>## Usage
-
-The `Colors.dart` file provides a `AppColors` class with several color constants:
+| [Colors.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Colors/Colors.dart) | The `Colors.dart` file provides a `AppColors` class with several color constants:
 
 - `black0`: A dark black color.
 - `black1`: A slightly lighter black color.
@@ -200,7 +197,7 @@ The `Colors.dart` file provides a `AppColors` class with several color constants
 - `grey0`: A dark gray color.
 - `grey1`: A lighter gray color.
 - `grey2`: An even lighter gray color.
-- `white`: A pure white color.</code> |
+- `white`: A pure white color.
 
 </details>
 
@@ -208,9 +205,7 @@ The `Colors.dart` file provides a `AppColors` class with several color constants
 
 | File                                                                                      | Summary                         |
 | ---                                                                                       | ---                             |
-| [folderDB.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/DB/folderDB.dart) | <code>## Description
-
-The `FolderDB.dart` file provides a `folderDB` class, which serves as a database provider for managing folders in the application. It utilizes the `sqflite` package for SQLite database operations.
+| [folderDB.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/DB/folderDB.dart) | The `FolderDB.dart` file provides a `folderDB` class, which serves as a database provider for managing folders in the application. It utilizes the `sqflite` package for SQLite database operations.
 
 ### Features
 
@@ -225,10 +220,8 @@ To use the `folderDB` class in your Flutter application, follow these steps:
 
 1. Import the `FolderDB.dart` file into your project.
 2. Create an instance of the `folderDB` class to access database operations.
-3. Use the provided methods to interact with folders in your application.</code> |
-| [notesDB.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/DB/notesDB.dart)   | <code>## Description
-
-The `notesDB.dart` file provides a `notesDB` class, which serves as a database provider for managing notes in the application. It utilizes the `sqflite` package for SQLite database operations.
+3. Use the provided methods to interact with folders in your application.
+| [notesDB.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/DB/notesDB.dart)   | The `notesDB.dart` file provides a `notesDB` class, which serves as a database provider for managing notes in the application. It utilizes the `sqflite` package for SQLite database operations.
 
 ### Features
 
@@ -243,7 +236,7 @@ To use the `notesDB` class in your Flutter application, follow these steps:
 
 1. Import the `notesDB.dart` file into your project.
 2. Create an instance of the `notesDB` class to access database operations.
-3. Use the provided methods to interact with notes in your application.</code> |
+3. Use the provided methods to interact with notes in your application.
 
 </details>
 
@@ -251,9 +244,7 @@ To use the `notesDB` class in your Flutter application, follow these steps:
 
 | File                                                                                | Summary                         |
 | ---                                                                                 | ---                             |
-| [main.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Main/main.dart) | <code>## Description
-
-The `main.dart` file initializes the Flutter application and sets up the initial configuration, including themes and routes.
+| [main.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Main/main.dart) | The `main.dart` file initializes the Flutter application and sets up the initial configuration, including themes and routes.
 
 ### Features
 
@@ -267,7 +258,7 @@ To use the `main.dart` file in your Flutter application, follow these steps:
 
 1. Import the `main.dart` file into your project.
 2. Modify the `MyApp` class and `build` method to customize the application's theme and routes.
-3. Run the application using `flutter run`.</code> |
+3. Run the application using `flutter run`.
 
 </details>
 
@@ -275,9 +266,7 @@ To use the `main.dart` file in your Flutter application, follow these steps:
 
 | File                                                                                                     | Summary                         |
 | ---                                                                                                      | ---                             |
-| [note_view.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/note_view.dart)           | <code>## Description
-
-The `note_view.dart` file provides a StatefulWidget called `note_view`, which allows users to view and edit individual notes. It provides functionalities for updating note details such as title, description, and folder. Additionally, users can share notes via the Share functionality provided by the Share plugin.
+| [note_view.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/note_view.dart)           | The `note_view.dart` file provides a StatefulWidget called `note_view`, which allows users to view and edit individual notes. It provides functionalities for updating note details such as title, description, and folder. Additionally, users can share notes via the Share functionality provided by the Share plugin.
 
 ### Features
 
@@ -290,10 +279,11 @@ The `note_view.dart` file provides a StatefulWidget called `note_view`, which al
 To use the `note_view.dart` file in your Flutter application, follow these steps:
 
 1. Import the `note_view.dart` file into your project.
-2. Create an instance of the `note_view` widget and pass the necessary parameters (note, folder, isNewNote) to it.</code> |
-| [folder_display.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/folder_display.dart) | <code>## Description
+2. Create an instance of the `note_view` widget and pass the necessary parameters (note, folder, isNewNote) to it.
 
-The `folder_display.dart` file provides a StatefulWidget called `folder_display`, which displays folders along with their sizes and allows users to manage them. It also includes functionalities for adding, editing, and deleting folders.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [folder_display.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/folder_display.dart) | The `folder_display.dart` file provides a StatefulWidget called `folder_display`, which displays folders along with their sizes and allows users to manage them. It also includes functionalities for adding, editing, and deleting folders.
 
 ### Features
 
@@ -309,10 +299,11 @@ To use the `folder_display.dart` file in your Flutter application, follow these 
 
 1. Import the `folder_display.dart` file into your project.
 2. Create an instance of the `folder_display` widget and pass the necessary parameters.
-3. Utilize the folder display page in your application's navigation flow.</code> |
-| [panelWidget.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/panelWidget.dart)       | <code>## Description
+3. Utilize the folder display page in your application's navigation flow.
 
-The `panelWidget.dart` file provides a StatelessWidget called `panelWidget`, which is used to display a panel widget within a SlidingUpPanel in a Flutter application. This panel widget can be customized and extended to suit various needs, such as displaying a list of folders or any other content.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [panelWidget.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/panelWidget.dart)       | The `panelWidget.dart` file provides a StatelessWidget called `panelWidget`, which is used to display a panel widget within a SlidingUpPanel in a Flutter application. This panel widget can be customized and extended to suit various needs, such as displaying a list of folders or any other content.
 
 ### Features
 
@@ -325,10 +316,10 @@ To use the `panelWidget.dart` file in your Flutter application, follow these ste
 
 1. Import the `panelWidget.dart` file into your project.
 2. Create an instance of the `panelWidget` widget and pass the necessary parameters (e.g., `panelController`) to it.
-</code> |
-| [folder_view.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/folder_view.dart)       | <code>## Description
 
-The `folder_view.dart` file provides a StatefulWidget called `folder_view`, which displays folders in a staggered grid view layout. It allows users to view folders and their contents in a visually appealing manner. The file also includes functionalities for refreshing folders and adding new folders.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [folder_view.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/folder_view.dart)       | The `folder_view.dart` file provides a StatefulWidget called `folder_view`, which displays folders in a staggered grid view layout. It allows users to view folders and their contents in a visually appealing manner. The file also includes functionalities for refreshing folders and adding new folders.
 
 ### Features
 
@@ -342,10 +333,10 @@ To use the `folder_view.dart` file in your Flutter application, follow these ste
 
 1. Import the `folder_view.dart` file into your project.
 2. Create an instance of the `folder_view` widget and include it in your application's navigation flow.
-</code> |
-| [note_page.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/note_page.dart)           | <code>## Description
 
-The `note_page.dart` file provides a StatefulWidget called `note_page`, which displays notes in a staggered grid view layout. It allows users to view notes and their contents in a visually appealing manner. The file also includes functionalities for refreshing notes and adding new notes.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [note_page.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Pages/note_page.dart)           | The `note_page.dart` file provides a StatefulWidget called `note_page`, which displays notes in a staggered grid view layout. It allows users to view notes and their contents in a visually appealing manner. The file also includes functionalities for refreshing notes and adding new notes.
 
 ### Features
 
@@ -358,7 +349,7 @@ The `note_page.dart` file provides a StatefulWidget called `note_page`, which di
 To use the `note_page.dart` file in your Flutter application, follow these steps:
 
 1. Import the `note_page.dart` file into your project.
-2. Create an instance of the `note_page` widget and include it in your application's navigation flow.</code> |
+2. Create an instance of the `note_page` widget and include it in your application's navigation flow.
 
 </details>
 
@@ -366,9 +357,7 @@ To use the `note_page.dart` file in your Flutter application, follow these steps
 
 | File                                                                                                            | Summary                         |
 | ---                                                                                                             | ---                             |
-| [quickPageRoute.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/quickPageRoute.dart)     | <code>## Description
-
-The `quickPageRoute.dart` file provides a class called `quickPageRoute`, which extends the [PageRouteBuilder] class. This custom page route builder allows for instant navigation between screens without any transition animation, making it suitable for scenarios where immediate navigation is desired.
+| [quickPageRoute.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/quickPageRoute.dart)     | The `quickPageRoute.dart` file provides a class called `quickPageRoute`, which extends the [PageRouteBuilder] class. This custom page route builder allows for instant navigation between screens without any transition animation, making it suitable for scenarios where immediate navigation is desired.
 
 ### Features
 
@@ -381,10 +370,11 @@ To use the `quickPageRoute.dart` file in your Flutter application, follow these 
 
 1. Import the `quickPageRoute.dart` file into your project.
 2. Create an instance of the `quickPageRoute` class and provide the child widget.
-3. Use the `Navigator.of(context).push()` method to push the quick page route.</code> |
-| [SlideupPageRoute.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/SlideupPageRoute.dart) | <code>## Description
+3. Use the `Navigator.of(context).push()` method to push the quick page route.
 
-The `SlideupPageRoute.dart` file provides a class called `SlideupPageRoute<T>`, which extends the [PageRoute] class. This custom route creates an overlay dialog with a slide-up animation effect, making it suitable for displaying modal bottom sheets or other content that needs to slide into view from the bottom of the screen. It supports features such as barrier dismissal, transition duration, maintaining state, and customizable barrier color.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [SlideupPageRoute.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/SlideupPageRoute.dart) | The `SlideupPageRoute.dart` file provides a class called `SlideupPageRoute<T>`, which extends the [PageRoute] class. This custom route creates an overlay dialog with a slide-up animation effect, making it suitable for displaying modal bottom sheets or other content that needs to slide into view from the bottom of the screen. It supports features such as barrier dismissal, transition duration, maintaining state, and customizable barrier color.
 
 ### Features
 
@@ -400,10 +390,11 @@ To use the `SlideupPageRoute.dart` file in your Flutter application, follow thes
 
 1. Import the `SlideupPageRoute.dart` file into your project.
 2. Create an instance of the `SlideupPageRoute<T>` class and provide a `builder` function to build the content of the dialog.
-3. Use the `Navigator` class to push the page route onto the navigation stack.</code> |
-| [customPageRoute.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/customPageRoute.dart)   | <code>## Description
+3. Use the `Navigator` class to push the page route onto the navigation stack.
 
-The `customPageRoute.dart` file provides a class called `customPageRoute`, which extends the [PageRouteBuilder] class. This custom page route allows for creating custom page transitions with a specified duration and animation.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [customPageRoute.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/customPageRoute.dart)   | The `customPageRoute.dart` file provides a class called `customPageRoute`, which extends the [PageRouteBuilder] class. This custom page route allows for creating custom page transitions with a specified duration and animation.
 
 ### Features
 
@@ -417,10 +408,11 @@ To use the `customPageRoute.dart` file in your Flutter application, follow these
 
 1. Import the `customPageRoute.dart` file into your project.
 2. Create an instance of the `customPageRoute` class and provide the child widget to be displayed.
-3. Use the `Navigator` class to push the custom page route onto the navigation stack.</code> |
-| [customRectTween.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/customRectTween.dart)   | <code>## Description
+3. Use the `Navigator` class to push the custom page route onto the navigation stack.
 
-The `customRectTween.dart` file provides a class called `CustomRectTween`, which extends the [RectTween] class. This custom rectangle tween applies a [Curves.easeOut] curve to the transition, resulting in a smoother animation.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [customRectTween.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/customRectTween.dart)   | The `customRectTween.dart` file provides a class called `CustomRectTween`, which extends the [RectTween] class. This custom rectangle tween applies a [Curves.easeOut] curve to the transition, resulting in a smoother animation.
 
 ### Features
 
@@ -433,10 +425,11 @@ To use the `customRectTween.dart` file in your Flutter application, follow these
 
 1. Import the `customRectTween.dart` file into your project.
 2. Create an instance of the `CustomRectTween` class and provide the begin and end rectangles.
-3. Use the `lerp` method to interpolate the rectangle at a specific fraction along the curve.E</code> |
-| [HeroDialogRoute.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/HeroDialogRoute.dart)   | <code>## Description
+3. Use the `lerp` method to interpolate the rectangle at a specific fraction along the curve.
 
-The `HeroDialogueRoute.dart` file provides a class called `HeroDialogRoute<T>`, which extends the [PageRoute] class. This custom route creates an overlay dialog with a popup effect, making it suitable for displaying dialogs or popup windows in Flutter applications. It supports features such as barrier dismissal, transition duration, maintaining state, and customizable barrier color.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [HeroDialogRoute.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Services/HeroDialogRoute.dart)   | The `HeroDialogueRoute.dart` file provides a class called `HeroDialogRoute<T>`, which extends the [PageRoute] class. This custom route creates an overlay dialog with a popup effect, making it suitable for displaying dialogs or popup windows in Flutter applications. It supports features such as barrier dismissal, transition duration, maintaining state, and customizable barrier color.
 
 ### Features
 
@@ -452,7 +445,7 @@ To use the `HeroDialogueRoute.dart` file in your Flutter application, follow the
 
 1. Import the `HeroDialogueRoute.dart` file into your project.
 2. Create an instance of the `HeroDialogRoute<T>` class and provide a `builder` function to build the content of the dialog.
-3. Use the `Navigator` class to push the dialog route onto the navigation stack.</code> |
+3. Use the `Navigator` class to push the dialog route onto the navigation stack.
 
 </details>
 
@@ -460,9 +453,7 @@ To use the `HeroDialogueRoute.dart` file in your Flutter application, follow the
 
 | File                                                                                                         | Summary                         |
 | ---                                                                                                          | ---                             |
-| [editFolderName.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/editFolderName.dart)   | <code>## Description
-
-The `editFolderName.dart` file provides an `editFolderName` class, which is a stateful widget representing the edit folder name screen. This screen allows users to change the name of a folder.
+| [editFolderName.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/editFolderName.dart)   | The `editFolderName.dart` file provides an `editFolderName` class, which is a stateful widget representing the edit folder name screen. This screen allows users to change the name of a folder.
 
 ### Features
 
@@ -476,10 +467,11 @@ The `editFolderName.dart` file provides an `editFolderName` class, which is a st
 To use the `editFolderName.dart` file in your Flutter application, follow these steps:
 
 1. Import the `editFolderName.dart` file into your project.
-2. Use the `editFolderName` widget in your navigation stack to allow users to edit folder names.</code> |
-| [smallNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/smallNote.dart)             | <code>## Description
+2. Use the `editFolderName` widget in your navigation stack to allow users to edit folder names.
 
-The `smallNote.dart` file provides a widget called `smallNote`, which represents a small note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [smallNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/smallNote.dart)             | The `smallNote.dart` file provides a widget called `smallNote`, which represents a small note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
 
 ### Features
 
@@ -492,10 +484,11 @@ The `smallNote.dart` file provides a widget called `smallNote`, which represents
 To use the `smallNote.dart` file in your Flutter application, follow these steps:
 
 1. Import the `smallNote.dart` file into your project.
-2. Use the `smallNote` widget to display small notes in your UI.</code> |
-| [folderCard.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/folderCard.dart)           | <code>## Description
+2. Use the `smallNote` widget to display small notes in your UI.
 
-The `folderCard.dart` file provides two widgets:
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [folderCard.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/folderCard.dart)           | The `folderCard.dart` file provides two widgets:
 1. **folderCard**: Represents a card displaying folder information, including name, creation date, and note count.
 2. **folderOptions**: Displays options for interacting with the folder, such as deleting it.
 
@@ -511,10 +504,11 @@ To use the `folderCard.dart` file in your Flutter application, follow these step
 
 1. Import the `folderCard.dart` file into your project.
 2. Use the `folderCard` widget to display folder information in your UI.
-3. Optionally, use the `folderOptions` widget to provide interaction options for the folder.</code> |
-| [addNoteButton.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/addNoteButton.dart)     | <code>## Description
+3. Optionally, use the `folderOptions` widget to provide interaction options for the folder.
 
-The `addNoteButton.dart` file provides a `addNoteButton` class, which is a stateless widget representing the add note button. This button allows users to create a new note within a specified folder.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [addNoteButton.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/addNoteButton.dart)     | The `addNoteButton.dart` file provides a `addNoteButton` class, which is a stateless widget representing the add note button. This button allows users to create a new note within a specified folder.
 
 ### Features
 
@@ -529,10 +523,11 @@ To use the `addNoteButton.dart` file in your Flutter application, follow these s
 1. Import the `addNoteButton.dart` file into your project.
 2. Add the `addNoteButton` widget to your UI where you want the add note button to appear.
 3. Pass the required folder to the `addNoteButton` widget.
-4. Customize the appearance of the button as needed.</code> |
-| [longNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/longNote.dart)               | <code>## Description
+4. Customize the appearance of the button as needed.
 
-The `longNote.dart` file provides a widget called `longNote`, which represents a long note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [longNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/longNote.dart)               | The `longNote.dart` file provides a widget called `longNote`, which represents a long note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
 
 ### Features
 
@@ -545,10 +540,11 @@ The `longNote.dart` file provides a widget called `longNote`, which represents a
 To use the `longNote.dart` file in your Flutter application, follow these steps:
 
 1. Import the `longNote.dart` file into your project.
-2. Use the `longNote` widget to display long notes in your UI.</code> |
-| [wideNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/wideNote.dart)               | <code>## Description
+2. Use the `longNote` widget to display long notes in your UI.
 
-The `wideNote.dart` file provides a widget called `wideNote`, which represents a wide note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [wideNote.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/wideNote.dart)               | The `wideNote.dart` file provides a widget called `wideNote`, which represents a wide note with a title and description. It allows users to tap on the note to view its details and provides a delete option through a popup menu button.
 
 ### Features
 
@@ -561,10 +557,11 @@ The `wideNote.dart` file provides a widget called `wideNote`, which represents a
 To use the `wideNote.dart` file in your Flutter application, follow these steps:
 
 1. Import the `wideNote.dart` file into your project.
-2. Use the `wideNote` widget to display wide notes in your UI.</code> |
-| [addFolderButton.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/addFolderButton.dart) | <code>## Description
+2. Use the `wideNote` widget to display wide notes in your UI.
 
-The `addFolderButton.dart` file provides two classes:
+| File                                                                                      | Summary                         |
+| ---                                                                                       | ---                             |
+| [addFolderButton.dart](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/Widgets/addFolderButton.dart) | The `addFolderButton.dart` file provides two classes:
 1. `addFolderButton`: A stateful widget representing the add folder button.
 2. `addFolder`: A stateful widget representing the dialog for adding a new folder.
 
@@ -584,7 +581,7 @@ To use the `addFolderButton.dart` file in your Flutter application, follow these
 1. Import the `addFolderButton.dart` file into your project.
 2. Add the `addFolderButton` widget to your UI where you want the add folder button to appear.
 3. Customize the appearance of the button as needed.
-4. Implement the logic to handle folder creation in the `addFolder` dialog.</code> |
+4. Implement the logic to handle folder creation in the `addFolder` dialog.
 
 </details>
 
@@ -594,7 +591,7 @@ To use the `addFolderButton.dart` file in your Flutter application, follow these
 
 **System Requirements:**
 
-* **Dart**: `version x.y.z`
+* **Dart**: `version 3.3.2`
 
 ###  Installation
 
@@ -631,14 +628,6 @@ To use the `addFolderButton.dart` file in your Flutter application, follow these
 > ```console
 > $ dart test
 > ```
-
----
-
-##  Project Roadmap
-
-- [X] `► INSERT-TASK-1`
-- [ ] `► INSERT-TASK-2`
-- [ ] `► ...`
 
 ---
 
@@ -689,7 +678,7 @@ Contributions are welcome! Here are several ways you can contribute:
 
 ##  License
 
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
