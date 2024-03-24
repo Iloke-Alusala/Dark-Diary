@@ -45,7 +45,7 @@
 
 ##  Features
 
-<p>### Note Management
+### Note Management
 - **Create Notes**: Easily create new notes with customizable titles and descriptions.
 - **Edit Notes**: Modify existing notes to update their content or metadata.
 - **Delete Notes**: Remove unwanted notes from the application.
@@ -74,7 +74,7 @@
 
 ### Share and Export
 - **Share Notes**: Share notes with others via various communication channels, such as email or messaging apps.
-- **Export Notes**: Export notes in different formats for backup or sharing purposes.</p>
+- **Export Notes**: Export notes in different formats for backup or sharing purposes.
 
 ---
 
