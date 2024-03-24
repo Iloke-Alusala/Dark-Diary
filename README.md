@@ -39,13 +39,13 @@
 
 ##  Overview
 
-<code>DiaryDark provides a seamless experience for users to create, edit, and organize their notes within customizable folders. Whether you're capturing fleeting moments, brainstorming new concepts, or keeping track of your to-do lists, DiaryDark offers the tools you need to stay productive and organized on the go.</code>
+<p>DiaryDark provides a seamless experience for users to create, edit, and organize their notes within customizable folders. Whether you're capturing fleeting moments, brainstorming new concepts, or keeping track of your to-do lists, DiaryDark offers the tools you need to stay productive and organized on the go.</p>
 
 ---
 
 ##  Features
 
-<code>### Note Management
+<p>### Note Management
 - **Create Notes**: Easily create new notes with customizable titles and descriptions.
 - **Edit Notes**: Modify existing notes to update their content or metadata.
 - **Delete Notes**: Remove unwanted notes from the application.
@@ -74,7 +74,7 @@
 
 ### Share and Export
 - **Share Notes**: Share notes with others via various communication channels, such as email or messaging apps.
-- **Export Notes**: Export notes in different formats for backup or sharing purposes.</code>
+- **Export Notes**: Export notes in different formats for backup or sharing purposes.</p>
 
 ---
 
