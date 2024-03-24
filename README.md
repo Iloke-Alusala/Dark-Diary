@@ -39,13 +39,42 @@
 
 ##  Overview
 
-<code>► INSERT-TEXT-HERE</code>
+<code>DiaryDark provides a seamless experience for users to create, edit, and organize their notes within customizable folders. Whether you're capturing fleeting moments, brainstorming new concepts, or keeping track of your to-do lists, DiaryDark offers the tools you need to stay productive and organized on the go.</code>
 
 ---
 
 ##  Features
 
-<code>► INSERT-TEXT-HERE</code>
+<code>### Note Management
+- **Create Notes**: Easily create new notes with customizable titles and descriptions.
+- **Edit Notes**: Modify existing notes to update their content or metadata.
+- **Delete Notes**: Remove unwanted notes from the application.
+
+### Folder Organization
+- **Create Folders**: Organize notes into folders to categorize them based on topics or themes.
+- **Edit Folder Names**: Rename folders to better reflect their contents or purpose.
+- **Delete Folders**: Remove folders along with their associated notes.
+
+### User Interface
+- **Dark Mode**: Enjoy a sleek and stylish dark mode interface for comfortable usage in low-light environments.
+- **Responsive Design**: Experience a user-friendly interface optimized for various screen sizes and orientations.
+
+### Note Viewing and Editing
+- **View Notes**: Access and read notes with ease using the note viewing interface.
+- **Edit Notes**: Make changes to note content and metadata directly from the note viewing screen.
+- **Long Note Support**: Seamlessly handle long notes with scrollable viewing and editing capabilities.
+
+### Customization
+- **Color Themes**: Choose from a variety of color themes to personalize the app's appearance to suit your preferences.
+- **Font Options**: Select different font styles and sizes for an enhanced reading and writing experience.
+
+### Data Persistence
+- **Local Storage**: Store notes and folders locally on the device for offline access and data security.
+- **Database Integration**: Utilize SQLite database for efficient data management and retrieval.
+
+### Share and Export
+- **Share Notes**: Share notes with others via various communication channels, such as email or messaging apps.
+- **Export Notes**: Export notes in different formats for backup or sharing purposes.</code>
 
 ---
 
