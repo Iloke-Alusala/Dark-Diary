@@ -122,11 +122,11 @@
 
 ##  Modules
 
-<details closed><summary>.</summary>
+<details closed><summary>pubspec.yaml</summary>
 
 | File                                                                                 | Summary                         |
 | ---                                                                                  | ---                             |
-| [pubspec.yaml](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/pubspec.yaml) | <code>## Description
+| [pubspec.yaml](https://github.com/Iloke-Alusala/Dark-Diary/blob/master/pubspec.yaml) | ## Description
 
 The `pubspec.yaml` file defines the dependencies, assets, and configuration for the "diarydark" Flutter project.
 
@@ -142,7 +142,7 @@ To use the `pubspec.yaml` file in your Flutter project, follow these steps:
 
 1. Copy the contents of the `pubspec.yaml` file into your project's `pubspec.yaml`.
 2. Update the dependencies and assets sections according to your project's needs.
-3. Run `flutter pub get` in your project directory to install the dependencies listed in the `pubspec.yaml` file.</code> |
+3. Run `flutter pub get` in your project directory to install the dependencies listed in the `pubspec.yaml` file. |
 
 </details>
 
